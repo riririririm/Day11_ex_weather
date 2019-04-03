@@ -17,4 +17,13 @@ public class WeatherView {
 		}
 		
 	}
+	
+	public void view(Weather w) {
+		System.out.println("[도시:"+w.getCity()+"]");
+		System.out.println("날씨:"+w.getState());
+		System.out.println("습도:"+w.getHum());
+		System.out.println("온도:"+w.getGion());
+		System.out.println("미세먼지:"+w.getMise());
+		System.out.println("---------------------");
+	}
 }
