@@ -29,9 +29,13 @@ public class WeatherController {
 				view.view(weathers);
 			} else if (select == 3) {
 				Weather w = init.findWeather(weathers);
-				view.view(w);
+				if(w!=null)
+					view.view(w);
+				else
+					System.out.println("찾는 도시가 없음");
 			} else if (select == 4) {
-				init.deleteWeather(weathers);
+				String result =init.deleteWeather(weathers);
+				view.view(result);
 			}
 			else if (select == 5)
 				break;

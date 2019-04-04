@@ -26,4 +26,8 @@ public class WeatherView {
 		System.out.println("미세먼지:"+w.getMise());
 		System.out.println("---------------------");
 	}
+	
+	public void view(String str) {
+		System.out.println(str);
+	}
 }

@@ -52,7 +52,7 @@ public class WeatherInit {
 		System.out.println("검색할 도시:");
 		String city = sc.next();
 		
-		Weather w = new Weather();
+		Weather w = null;
 		for(int i=0;i<weathers.size();i++) {
 			if(city.equals(weathers.get(i).getCity())){
 
@@ -63,16 +63,21 @@ public class WeatherInit {
 		return w;
 	}
 
-	public void deleteWeather(ArrayList<Weather> weathers) {
+	public String deleteWeather(ArrayList<Weather> weathers) {
 		System.out.println("삭제할 도시:");
 		String city = sc.next();
+		String result ="없는 도시명";
 		
 		Weather w = new Weather();
 		for(int i=0;i<weathers.size();i++) {
 			if(city.equals(weathers.get(i).getCity())) {
 				weathers.remove(i);
+				result="삭제완료";
+				break;
 			}
 		}
+		
+		return result;
 
 	}
 }
