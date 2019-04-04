@@ -2,6 +2,9 @@ package com.rim.weather;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import javax.crypto.AEADBadTagException;
 
 public class WeatherInit {
 
@@ -13,19 +16,29 @@ public class WeatherInit {
 	}
 
 	public ArrayList<Weather> getWeathers() {
-		String[] str = info.split(",");
-
 		ArrayList<Weather> weathers = new ArrayList<Weather>();
-
-		for (int i = 0; i < str.length; i++) {
-			Weather w = new Weather();
-			w.setCity(str[i]);
-			w.setState(str[++i]);
-			w.setHum(Integer.parseInt(str[++i]));
-			w.setGion(Integer.parseInt(str[++i]));
-			w.setMise(Double.parseDouble(str[++i]));
-			weathers.add(w);
+		
+		StringTokenizer st = new StringTokenizer(info);
+		while(st.hasMoreTokens()) {
+			Weather weather = new Weather();
+			weather.setCity(st.nextToken().trim());
+			weather.setState(st.nextToken().trim());
+			weather.setGion(Integer.parseInt(st.nextToken().trim()));
+			weather.setHum(Integer.parseInt(st.nextToken().trim()));
+			weather.setMise(Double.parseDouble(st.nextToken().trim()));
+			weathers.add(weather);
+			
 		}
+//		String[] str = info.split(",");
+//		for (int i = 0; i < str.length; i++) {
+//			Weather w = new Weather();
+//			w.setCity(str[i]);
+//			w.setState(str[++i]);
+//			w.setHum(Integer.parseInt(str[++i]));
+//			w.setGion(Integer.parseInt(str[++i]));
+//			w.setMise(Double.parseDouble(str[++i]));
+//			weathers.add(w);
+//		}
 
 		return weathers;
 
